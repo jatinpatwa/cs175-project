@@ -1,0 +1,163 @@
+<% include partials/head %>
+
+<body id="home">
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div id="status"></div>
+  </div>
+
+  <!-- FullScreen -->
+    <div class="intro-header">
+    <div class="col-xs-12">
+      <img class="landing-logo img-responsive" src="img/landing-logo.svg">
+      <h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">Edge</h1>
+      <h3 class="h3_home wow fadeIn" data-wow-delay="0.6s">A GPS for your job search. <br>Founded by Indian Students and backed my Indian Mentors.</h3>
+      <ul class="list-inline intro-social-buttons">
+        <li id="signin" ><a href="#sign-up" class="btn btn-primary mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s"><span class="network-name"><b>Get Started</b></span></a>
+        </li>
+      </ul>
+    </div>
+        <!-- /.container -->
+    <div class="col-xs-12 text-center abcen wow fadeIn">
+      <div class="button_down ">
+        <a class="imgcircle wow bounceInUp" data-wow-duration="1.5s"  href="#whatis"></a>
+      </div>
+    </div>
+    </div>
+
+  <!-- NavBar-->
+  <nav class="navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <img class="navbar-logo" src="img/logo.svg">
+        <a class="navbar-brand" href="#home">Edge</a>
+      </div>
+
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+          <li class="menuItem"><a style="margin-top: 2px" href="#whatis">What is Edge?</a></li>
+        </ul>
+        <form name="signin" class="navbar-form navbar-right d-inline-block" action="/login" method="post" style="width:inherit; margin-top: 4px;" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="email" id="email" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Sign In"></input>
+        </form>
+      </div>
+    </div>
+  </nav>
+    <div class="content-section-a" id="sign-up">
+    <div class="container">
+      <div class="row">
+      <div class="col-md-8 col-md-offset-3 text-right wrap_title">
+        <h2 class="title-primary">Sign Up</h2>
+        <h3 class="h3_home" style="margin-top: 10px">Take up on our trial offer, stay for more if you see a difference.</h3>
+      </div>
+      <hr class="featurette-divider hidden-lg">
+        <div class="col-md-5 col-md-push-1 address">
+        <img src="img/signup-img.svg" style="height: 400px;">
+        </div>
+              <form role="form" action="/signup" method="post" name="signup">
+        <div class="col-md-6">
+          <div class="form-group">
+            <div class="input-group" style="width: 100%; border-right: 2px solid #6CC0FF">
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group" style="width: 100%; border-right: 2px solid #6CC0FF">
+              <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group" style="width: 100%; border-right: 2px solid #6CC0FF">
+              <input type="password" class="form-control" id="confpass" name="confpass" placeholder="Confirm Password" required>
+            </div>
+          </div>
+
+          <input type="submit" name="submit" id="submit" value="Submit" class="btn wow tada btn-primary pull-right">
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  <!-- What is Edge -->
+  <div id="whatis" class="content-section-b" style="border-top: 0">
+    <div class="container">
+
+      <div class="col-md-6 col-md-offset-3 text-center wrap_title">
+        <h2 class="title-primary">What is Edge?</h2>
+        <p class="lead" style="margin-top:0">An end-to-end support system for your job search. Our goal? To give you an edge over others.</p>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4 wow fadeInDown text-center">
+          <img class="rotate" src="img/icon/medal.svg" alt="Generic placeholder image">
+          <h3>Tailored Jobs For You</h3><br>
+          <p class="lead">With edge, you no longer need 100+ job applications. Our AI driven platform picks the best jobs with a guaranteed call back, just for you.</p>
+
+          <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-sm-4 wow fadeInDown text-center">
+          <img  class="rotate" src="img/icon/bulb.svg" alt="Generic placeholder image">
+           <h3>No More Resume Blackholes</h3>
+           <p class="lead">We know how frustating it is when a company rejects you without any feedback. No more. Our platform provides insights for all your applications, even the rejects.</p>
+           <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-sm-4 wow fadeInDown text-center">
+          <img  class="rotate" src="img/icon/retina.svg" alt="Generic placeholder image">
+           <h3>Application Dashbaord</h3><br>
+          <p class="lead">We're here to streamline the process. Keep a track of all your applications using our platform and manage your time and resources better.</p>
+          <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+        </div><!-- /.col-lg-4 -->
+
+      </div><!-- /.row -->
+
+      <div class="row tworow">
+
+        <div class="col-sm-4  wow fadeInDown text-center">
+          <img class="rotate" src="img/icon/clipboard.svg" alt="Generic placeholder image">
+          <h3>Resume Reviews</h3>
+          <p class="lead">Stop going to 10 different sources telling you the same thing over and over again. We are here to provide some real advice. We make sure that you look as stunning on paper as you do in real life.</p>
+         <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-sm-4 wow fadeInDown text-center">
+          <img  class="rotate" src="img/icon/tactics.svg" alt="Generic placeholder image">
+           <h3>Career Advice</h3>
+           <p class="lead">Our services also include personalized career advice and profile analysis to let you know where you stand and what your next step should be?</p>
+           <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-sm-4 wow fadeInDown text-center">
+          <img  class="rotate" src="img/icon/search.svg" alt="Generic placeholder image">
+           <h3>Tech Stack Roadmaps</h3>
+         <p class="lead">Need guidance on how to learn a new tech stack? We've got your back. We provide roadmaps for you to follow and expand your skills.</p>
+          <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+        </div><!-- /.col-lg-4 -->
+
+      </div><!-- /.row -->
+    </div>
+  </div>
+
+  <div  class="content-section-c" style="display:none">
+    <div class="container">
+      <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+          <div class="morph-button wow pulse morph-button-inflow morph-button-inflow-1">
+            <button type="button "><span>Subscribe to our Newsletter</span></button>
+            <div class="morph-content">
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+<% include partials/foot %>

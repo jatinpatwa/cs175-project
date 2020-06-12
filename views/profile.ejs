@@ -1,0 +1,235 @@
+<% include partials/head %>
+
+<body id="home">
+
+	<!-- Preloader -->
+	<div id="preloader">
+		<div id="status"></div>
+	</div>
+	<body id="home">
+
+	<!-- NavBar-->
+	<nav class="navbar-default stuckMenu isStuck" role="navigation" style="position: fixed; top: 0;">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<img class="navbar-logo" src="img/logo.svg">
+				<a class="navbar-brand" href="#home">Edge</a>
+			</div>
+
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<form class="navbar-form navbar-left d-inline-block" method="post" action="/search" name="searchform" style="width:inherit; margin-top: 4px;">
+                    <div class="form-group">
+                    <input type="text" class="form-control" name="key" id="key" placeholder="" style="width: 400px">
+                    </div>
+                    <input type="submit" id="search" class="btn btn-primary" value="Go"></input>
+        	</form>
+        	<ul class="nav navbar-nav navbar-right">
+          <li class="menuItem"><a href="/logout">Logout</a></li>
+        </ul>
+			</div>
+		</div>
+	</nav>
+
+
+
+
+	<div class="body-wrapper">
+		<div class="col-sm-9" style="float: right;">
+			<ul class="nav nav-pills" id="myTab">
+			  <li role="presentation" class="active"><a href="#active-jobs">Current Applications</a></li>
+			  <li role="presentation"><a href="#active-roadmaps">Active Roadmaps</a></li>
+			  <li role="presentation"><a href="#advice"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Talk to Us</a></li>
+			</ul>
+			<hr style="margin-top: 10px; border-color: #DEF2FF;">
+
+		<div class="tab-content" style="border: 0">
+
+			<!-- ONGOING DRILLS SECTION -->
+			<div id="active-jobs" class="tab-pane fade in active">
+				<% if(user.subscribed.length>0){%>
+				<% for(var i=0; i<user.subscribed.length; i++) {%>
+					<div class="col-sm-4 wow fadeInDown text-center drill-box">
+					<svg class="drill-logo" viewbox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" href="/drill/<%=user.subscribed[i].id%>">
+					  <defs>
+					  </defs>
+					  <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="lightpink"/>
+					</svg>
+					<h4><%=user.userdetails.firstname%>'s<n><user.subscribed[i].name></n> Drill</h4>
+					</div><!-- /.col-lg-4 -->
+				<% } %>
+				<% } %>
+
+				<div class="col-sm-4 wow fadeInDown text-center drill-box">
+					<svg class="drill-logo" viewbox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+					  <defs>
+					  </defs>
+					  <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="lightblue"/>
+					</svg>
+					<h4>Data Science Engineer at <n>BlackBerry</n></h4>
+				  <p>Application Status: Recommended</p>
+				</div><!-- /.col-lg-4 -->
+				<div class="col-sm-4 wow fadeInDown text-center drill-box">
+					<svg class="drill-logo" viewbox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+					  <defs>
+					  </defs>
+					  <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="lightgrey"/>
+					</svg>
+					<h4>Data Scientist at <n>LexisNexis</n></h4>
+				  <p>Application Status: Recommended</p>
+				</div><!-- /.col-lg-4 -->
+				<div class="col-sm-4 wow fadeInDown text-center drill-box">
+					<svg class="drill-logo" viewbox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+					  <defs>
+					  </defs>
+					  <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="lightgreen"/>
+					</svg>
+					<h4>Software Engineer at <n>Microsoft</n></h4>
+				  <p>Application Status: Applied, Awaiting Response</p>
+				</div><!-- /.col-lg-4 -->
+				<div class="col-sm-4 wow fadeInDown text-center drill-box">
+					<svg class="drill-logo" viewbox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+					  <defs>
+					  </defs>
+					  <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="lightgreen"/>
+					</svg>
+					<h4>Software Engineer at <n>Tesla</n></h4>
+				  <p>Application Status: Interview Process On-going</p>
+				</div><!-- /.col-lg-4 -->
+			</div>
+
+			<!-- ROADMAPS SECTION -->
+			<div id="active-roadmaps" class="tab-pane fade">
+				<div class="col-sm-4 wow fadeInDown text-center drill-box">
+					<svg class="drill-logo" viewbox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+						<defs>
+						</defs>
+						<polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="lightgreen"/>
+					</svg>
+					<h4>Java</h4>
+					<p>10 milestones completed, 5 more to go!</p>
+				</div><!-- /.col-lg-4 -->
+				<% if(user.userdetails.drills.length>0){%>
+				<% for(var i=0; i<user.userdetails.drills.length; i++) {%>
+					<a href="/drill/<%=user.userdetails.drills[i].id%>"><div class="col-sm-4 wow fadeInDown text-center drill-box">
+					<svg class="drill-logo" viewbox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+					  <defs>
+					  </defs>
+					  <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="lightgrey"/>
+					</svg>
+					<h4><%=user.userdetails.firstname%>'s <n><%=user.userdetails.drills[i].name%></n> Drill</h4>
+				</div></a><!-- /.col-lg-4 -->
+
+
+				<% } %>
+				<% } %>
+			</div>
+
+			<!-- ADVICE SECTION -->
+			<div id="advice" class="tab-pane fade">
+			<form role="add" method="post" action="/create_drill" name="add" style="margin-top:10px;">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Ask your question here. Just about anything, we're here for you!" required style="border: 1px solid #6CC0FF"  >
+                            <span class="input-group-addon" style="background: #DEF2FF; border: 0;"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="hashes" name="hashes" placeholder="What is this related to?" required style="border: 1px solid #6CC0FF"  >
+                            <span class="input-group-addon" style="background: #DEF2FF; border: 0;"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <textarea name="description" id="description" class="form-control" rows="10" required="" placeholder="Tell us everything"  style="border: 1px solid #6CC0FF"></textarea>
+                            <span class="input-group-addon" style="background: #DEF2FF; border: 0;"></span>
+                        </div>
+                    </div>
+                    <input type="submit" name="submit" id="create" value="Submit" class="btn wow tada btn-primary pull-right" >
+                </div>
+            </form>
+			</div>
+
+		</div>
+		</div>
+	</div>
+
+			<div class="col-sm-3 profile-sidebar stuckMenu isStuck text-center" style="position: fixed; top: 60px">
+				<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic">
+					<svg style="height: 200px;" viewbox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+					  <defs>
+					    <pattern id="img" patternUnits="userSpaceOnUse" width="100" height="100">
+					      <image xlink:href="img/profile-picture.jpg" x="-25" width="150" height="100" />
+					    </pattern>
+					  </defs>
+					  <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#img)"/>
+					</svg>
+				</div>
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						<%=user.userdetails.firstname%>
+					</div>
+					<div class="profile-usertitle-job">
+						Graduate Student at UC Riverside
+					</div>
+				</div>
+				<!-- END SIDEBAR USER TITLE -->
+				<!-- SIDEBAR BUTTONS -->
+				<div class="profile-userbuttons">
+					<button type="button" class="btn btn-primary btn-warning">4 Active Applications</button><br><br>
+					<button type="button" class="btn btn-primary btn-danger">Days Left: 121</button><br><br>
+					<button type="button" class="btn btn-primary btn-success">3 Callbacks So Far</button>
+				</div>
+				<!-- END SIDEBAR BUTTONS -->
+				<!-- SIDEBAR MENU -->
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<li class="active">
+							<a href="#">
+							<i class="glyphicon glyphicon-home"></i>
+							Overview </a>
+						</li>
+						<li>
+							<a href="/about">
+							<i class="glyphicon glyphicon-user"></i>
+							Account Settings </a>
+						</li>
+						<li>
+							<a href="#">
+							<i class="glyphicon glyphicon-flag"></i>
+							Help </a>
+						</li>
+					</ul>
+				</div>
+				<!-- END MENU -->
+			</div>
+	</div>
+	<script>
+	 $('#create').click(function(){
+    var hashes=$(#'hashes').val();
+   	var arr=hashes.split(" ");
+   	var desc=$('#description').val();
+   	var name=$('#name').val();
+   	alert(hashes+" "+desc+" "+name);
+		/*$.post("/create_drill",{name:name,hashes:arr,description:desc},function(data){
+		window.location.assign(data);
+		console.log("created");
+	});*/
+});
+    $('#search').click(function(){
+
+    var keyid=$('keyid').val();
+    $.post("/search",{key:keyid},function(data)
+{
+    console.log("search performed");
+
+});
+});
+
+</script>
+
+<% include partials/foot %>

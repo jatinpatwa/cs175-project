@@ -1,0 +1,82 @@
+<% include partials/head %>
+
+<body id="home">
+
+	<!-- Preloader -->
+	<div id="preloader">
+		<div id="status"></div>
+	</div>
+	<body id="home">
+
+	<!-- NavBar-->
+	<nav class="navbar-default stuckMenu isStuck" role="navigation" style="position: fixed; top: 0;">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<img class="navbar-logo" src="img/logo.svg">
+				<a class="navbar-brand" href="/profile">Drill</a>
+			</div>
+
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<form class="navbar-form navbar-left  d-inline-block" method="post" action="/search" name="search" style="width:inherit; margin-top: 4px;" role="search">
+                    <div class="form-group">
+                    <input type="text" class="form-control" id="key" name="key" placeholder="Search Drills from all over the world" style="width: 400px">
+                    </div>
+                    <input type="submit" value="Go" id="search" class="btn btn-primary">
+        	</form>
+        	<ul class="nav navbar-nav navbar-right">
+          <li class="menuItem"><a href="/logout">Logout</a></li>
+        </ul>
+			</div>
+		</div>
+	</nav>
+
+
+
+
+	<div class="body-wrapper">
+		<div class="col-sm-12" style="float: right; padding: 0 50px;">
+			<h2 style="color: #6CC0FF">Search Results</h2>
+			<hr style="margin-top: 10px; border-color: #DEF2FF;">
+			<% for(var i=0;i<hash.length;i++){%>
+			<% for(var j =0;j<hash[i].drills.length;j++){%>
+			<a href="/drill/<%=hash[i].drills[j].id%>"><div class="col-sm-4 wow fadeInDown text-center drill-box">
+					<svg class="drill-logo" viewbox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+					  <defs>
+					  </defs>
+					  <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="lightpink"/>
+					</svg>
+					<h4><n><%=hash[i].hashname%></n> Drill</h4>
+				  <p>Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum. </p>
+				</div><!-- /.col-lg-4 --></a>
+			<%}%>
+			<%}%>
+		
+		<div class="tab-content" style="border: 0">
+
+			</div>
+	</div>
+	<script>
+	 $('#create').click(function(){
+    var hashes=$(#'hashes').val();
+   	var arr=hashes.split(" ");
+   	var desc=$('#description').val();
+   	var name=$('#name').val();
+   	$.post("/create_drill",{key:keyid,hashes:arr},function(data)
+{
+    console.log("search performed");
+
+}); 
+});
+    $('#search').click(function(){
+
+    var keyid=$('keyid').val();
+    $.post("/search",{key:keyid},function(data)
+{
+    console.log("search performed");
+
+}); 
+});
+
+</script>
+
+<% include partials/foot %>
